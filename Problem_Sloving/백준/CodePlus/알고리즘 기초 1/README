@@ -1,5 +1,14 @@
 Stack / 스택
-뒤에만 넣을 수 있고, 뒤에서만 뺄수 있는 자료구조
+LIFO(Last In First Out) -> 뒤에만 넣을 수 있고(push_back), 뒤에서만 뺄수 있는(pop_back) 자료구조
+
+Stack -> push, pop 1차원 배열로 구현(empty 예외처리는 제외)
+int iStack[10000];
+int iSize = 5;
+void push(int iNum)        int pop() 
+{                          {
+  iStack[iSize] = iNum;       iStack[iSize-1] = 0;
+  iSize += 1;                iSize -= 1;
+}                          }
 
 
 큐
