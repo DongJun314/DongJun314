@@ -1,0 +1,84 @@
+**주의 사항**
+스택 구현과 비슷함, 허나 큐 자료구조는 포문 밖에 있어야하고, 포문 안에서 문자열을 먼저 cin으로 받고(getline이 아님), 그리고 다시 cin으로 정수를 받아, 정수만 큐 자료구조에 넣을 수 있도록 합니다.
+
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCount; 
+    cin >> iCount;
+
+    std::queue<int> qNumbers;
+
+    for (int iOutter = 0; iOutter < iCount; iOutter++)
+    {
+        std::string strQueue;
+        cin >> strQueue;
+
+        if (strQueue == "push")
+        {
+            int iNum;
+            cin >> iNum;
+            qNumbers.push(iNum);
+        }
+        else if (strQueue == "pop")
+        {
+            if (!qNumbers.empty())
+            {
+                cout << qNumbers.front() << '\n';
+                qNumbers.pop();
+            }
+            else
+            {
+                cout << "-1" << '\n';
+            }
+        }
+        else if (strQueue == "size")
+        {
+            cout << qNumbers.size() << '\n';
+        }
+        else if (strQueue == "empty")
+        {
+            if (!qNumbers.empty())
+            {
+                cout << "0" << '\n';
+            }
+            else
+            {
+                cout << "1" << '\n';
+            }
+        }
+        else if (strQueue == "front")
+        {
+            if (!qNumbers.empty())
+            {
+                cout << qNumbers.front() << '\n';
+            }
+            else
+            {
+                cout << "-1" << '\n';
+            }
+        }
+        else if (strQueue == "back")
+        {
+            if (!qNumbers.empty())
+            {
+                cout << qNumbers.back() << '\n';
+            }
+            else
+            {
+                cout << "-1" << '\n';
+            }
+        }
+    }
+
+    return 0;
+}
