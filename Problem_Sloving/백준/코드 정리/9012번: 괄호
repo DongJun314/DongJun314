@@ -1,0 +1,66 @@
+**주의 사항**
+플레그 값을 설정해서, 두가지 상황에 대한 예외처리
+1. 스택은 비어 있는데, 마지막 남은 문자가 우괄호일 경우
+2. 스택에 좌괄호가 남아 있는 경우
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCount; 
+    cin >> iCount;
+
+    for (int iOutter = 0; iOutter < iCount; iOutter++)
+    {
+        std::string strRoundBraskets;
+        cin >> strRoundBraskets;
+
+        std::stack<char> stLeftBrasket;
+
+        bool bIsValid = true;
+        for (char szChar : strRoundBraskets)
+        {
+            if (szChar == '(')
+            {
+                stLeftBrasket.push(szChar);
+            }
+            else if (szChar == ')')
+            {
+                if (!stLeftBrasket.empty())
+                {
+                    stLeftBrasket.pop();
+                }
+                else
+                {
+                    cout << "NO" << '\n';
+                    bIsValid = false;
+                    break;
+                }
+            }
+        }
+
+        if (bIsValid)
+        {
+            if (!stLeftBrasket.empty())
+            {
+                cout << "NO" << '\n';
+            }
+            else
+            {
+                cout << "YES" << '\n';
+            }
+        }
+
+        bIsValid = true;
+        
+    }
+
+    return 0;
+}
