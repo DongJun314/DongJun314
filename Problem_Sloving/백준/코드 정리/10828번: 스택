@@ -1,0 +1,73 @@
+**주의 사항**
+실제 std::stack을 사용해보고 문자열 비교를 통해 문제를 해결해야함
+
+//////////////////////////////////////////////////////////////
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCount;
+    cin >> iCount;
+
+    std::stack<int> stNums;
+    std::string strName;
+
+    for (int iOutter = 0; iOutter < iCount; iOutter++)
+    {
+        cin >> strName;
+
+        if (strName == "push")
+        {
+            int iNum;
+            cin >> iNum;
+            stNums.push(iNum);
+        }
+        else if (strName == "pop")
+        {
+            if (!stNums.empty())
+            {
+                cout << stNums.top() << '\n';
+                stNums.pop();
+            }
+            else
+            {
+                cout << "-1" << '\n';
+            }
+        }
+        else if (strName == "size")
+        {
+            cout << stNums.size() << '\n';
+        }
+        else if (strName == "empty")
+        {
+            if (!stNums.empty())
+            {
+                cout << "0" << '\n';
+            }
+            else
+            {
+                cout << "1" << '\n';
+            }
+        }
+        else if (strName == "top")
+        {
+            if (!stNums.empty())
+            {
+                cout << stNums.top() << '\n';
+            }
+            else
+            {
+                cout << "-1" << '\n';
+            }
+        }
+    }
+
+    return 0;
+}
