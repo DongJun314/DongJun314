@@ -1,0 +1,75 @@
+**주의 사항**
+지문에 대한 이해 부족 + int iA 인덱스를 가정한 ++iA 부족 + 비트 플레그 설정 + 머리속에서 그림이 안그려졌다
+그림이 그려지지 않을 경우, 디버깅을 해봐라, 그림판 보다 훨씬 낳다
+
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCount; 
+    cin >> iCount;
+
+    int iA = 0;
+    std::stack<int> stNumSequence;
+    std::string strCharSequence;
+
+    for (int iOutter = 0; iOutter < iCount; iOutter++)
+    {
+        int iNum;
+        cin >> iNum;
+
+        if (iNum > iA)
+        {
+            while (true)
+            {
+                stNumSequence.push(++iA);
+                strCharSequence += '+';
+                
+                if (iNum == iA)
+                {
+                    stNumSequence.pop();
+                    strCharSequence += '-';
+                    break;
+                }
+            }
+        }
+        else
+        {
+            bool bIsFound = false;
+
+            if (!stNumSequence.empty())
+            {
+                int iTop = stNumSequence.top();
+                stNumSequence.pop();
+                strCharSequence += '-';
+
+                if (iNum == iTop)
+                {
+                    bIsFound = true;
+                }
+                if (!bIsFound)
+                {
+                    cout << "NO" << '\n';
+                    return 0;
+                }
+            }
+        }
+    }
+
+    for (int iOutter = 0; iOutter < strCharSequence.size(); iOutter++)
+    {
+        cout << strCharSequence[iOutter] << '\n';
+    }
+    
+    return 0;
+}
+
+
