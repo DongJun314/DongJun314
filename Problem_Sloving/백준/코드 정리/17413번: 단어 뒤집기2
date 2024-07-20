@@ -1,0 +1,69 @@
+** 주의 사항 ** 
+while문 안에 if문으로 한번 더 처리할 경우, while()안에 조건을 추가해 넣어 간략화를 한다,
+마지막 개행문자일 경우 맨 마지막에 while으로 한번 더 출력을 해주기 , for(string) 같은 경우는 마지막 문자를 기준으로 순회를 돌지 않기에 
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    std::stack<char> stReverse;
+    std::string strSentence;
+    std::getline(cin, strSentence);
+
+    bool bIsTag = false;
+    for (char szChar : strSentence)
+    {
+        if (szChar == '<')
+        {
+            while (!stReverse.empty())
+            {
+                cout << stReverse.top();
+                stReverse.pop();
+            }
+            bIsTag = true;
+            cout << szChar; 
+        }
+        else if (szChar == '>')
+        {
+            bIsTag = false;
+            cout << szChar; 
+        }
+        else if (bIsTag)
+        {
+            cout << szChar; 
+        }
+        else
+        {
+            if (szChar == ' ')
+            {
+                while (!stReverse.empty())
+                {
+                    cout << stReverse.top();
+                    stReverse.pop();
+                }
+                cout << szChar; 
+            }
+            else
+            {
+                stReverse.push(szChar); 
+            }
+        }
+    }
+
+    while (!stReverse.empty())
+    {
+        cout << stReverse.top();
+        stReverse.pop();
+    }
+
+    return 0;
+}
+
+
