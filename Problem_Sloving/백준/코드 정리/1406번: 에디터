@@ -1,0 +1,88 @@
+** 주의 사항 ** 
+방법은 좋은데, 스택을 두개까지 써야할까? 한개로 어떻게 해볼 수 있을까? 라는 생각은 듬
+속도 40m/s인데, 빠른 사람은 10까지도 나옴, 그분들 소스코드를 보면 스택을 안쓰고 string으로만 사용한 사람도 있음,
+허나 스택 자료구조 연습용은 푼 예제기에 우선 신경쓰지말자
+
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::stack<char> stCursorL;
+    std::stack<char> stCursorR;
+
+    std::string strChar;
+    cin >> strChar;
+
+    for (char szChar : strChar)
+    {
+        stCursorL.push(szChar);
+    }
+    
+    int iCnt;
+    cin >> iCnt;
+
+    for (int iOutter = 0; iOutter < iCnt; iOutter++)
+    {
+        char szCmd;
+        cin >> szCmd;
+
+        if (szCmd == 'L')
+        {
+            if (!stCursorL.empty())
+            {
+                char szTop = stCursorL.top();
+                stCursorL.pop();
+                stCursorR.push(szTop);
+            }
+        }
+        else if (szCmd == 'D')
+        {
+            if (!stCursorR.empty())
+            {
+                char szTop = stCursorR.top();
+                stCursorR.pop();
+                stCursorL.push(szTop);
+            }
+        }
+        else if (szCmd == 'B')
+        {
+            if (!stCursorL.empty())
+            {
+                stCursorL.pop();
+            }
+        }
+        else if (szCmd == 'P')
+        {
+            char szChar;
+            cin >> szChar;
+
+            stCursorL.push(szChar);
+        }
+    }
+
+    int iLeftTotalCnt = stCursorL.size();
+    for (int iOutter = 0; iOutter < iLeftTotalCnt; iOutter++)
+    {
+        int iTop = stCursorL.top();
+        stCursorL.pop();
+        stCursorR.push(iTop);
+    }
+
+    int iRightTotalCnt = stCursorR.size();
+    for (int iOutter = 0; iOutter < iRightTotalCnt; iOutter++)
+    {
+        cout << stCursorR.top();
+        stCursorR.pop();
+    }
+
+    return 0;
+}
+
+
