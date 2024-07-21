@@ -1,0 +1,34 @@
+**주의 사항**
+std::find 함수와 string 내부 string 함수의 차이점에 대해서 이해필요
+string 함수 find을 사용할 경우 값을 못찾을 경우 string::npos를 반환하는 부분
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::string strWord;
+    cin >> strWord;
+
+    for (int i = 'a'; i <= 'z'; i++)
+    {
+        int iResult = strWord.find(i);
+
+        if (iResult == string::npos)
+        {
+            cout << -1 << ' ';
+        }
+        else
+        {
+            cout << iResult << ' ';
+        }
+    }
+
+    return 0;
+}
