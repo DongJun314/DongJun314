@@ -1,0 +1,30 @@
+**주의 사항**
+stoi 와 stoll의 차이, 같은 기능을 수행하지만 다르다
+long을 쓴 이유에 대해서 생각해보고, long long을 쓴 이유에 대해서 다시 한번 고민하
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::string strA, strB, strC, strD;
+    cin >> strA >> strB >> strC >> strD;
+
+    std::string AB = strA + strB;
+    std::string CD = strC + strD;
+
+    long iAB = stoll(AB);
+    long iCD = stoll(CD);
+
+    long long iResult = iAB + iCD;
+
+    cout << iResult;
+
+    return 0;
+} 
