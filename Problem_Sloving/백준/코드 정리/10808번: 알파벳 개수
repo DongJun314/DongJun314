@@ -1,0 +1,23 @@
+**주의 사항**
+포문 돌면서 알파벳 찾는 방법이 기발하다
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::string strWord;
+    cin >> strWord;
+
+    for (int i = 'a'; i <= 'z'; i++)
+    {
+        cout << count(strWord.begin(), strWord.end(), i) << ' ';
+    }
+    return 0;
+}
