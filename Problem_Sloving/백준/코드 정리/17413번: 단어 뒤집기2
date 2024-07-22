@@ -1,11 +1,7 @@
 ** 주의 사항 ** 
-while문 안에 if문으로 한번 더 처리할 경우, while()안에 조건을 추가해 넣어 간략화를 한다,
-마지막 개행문자일 경우 맨 마지막에 while으로 한번 더 출력을 해주기 , for(string) 같은 경우는 마지막 문자를 기준으로 순회를 돌지 않기에 
+1. while문 안에 if문으로 한번 더 처리할 경우, while()안에 조건을 추가해 넣어 간략화를 한다
+2. 마지막 개행문자일 경우 맨 마지막에 while으로 한번 더 출력을 해주기 , for(string) 같은 경우는 마지막 문자를 기준으로 순회를 돌지 않기에 
 
-#include <iostream>
-#include <stack>
-#include <string>
-using namespace std;
 
 int main()
 {
