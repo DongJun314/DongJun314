@@ -1,0 +1,29 @@
+** 주의 사항 ** 
+1. substr함수의 3가지 방식에 대해서 복습하기 -> 매개 변수 -> 문자열.substr(시작 위치, 길이) : 이부분 짤라서 없애기 -> 문자열.substr(시작 위치) : 시작 위치 부터 끝까지의 문자열을 얻는다
+2. std::sort함수 문자 정렬 가능
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::string strWord;
+    cin >> strWord;
+    
+    std::vector<string> vecWords;
+    vecWords.reserve(strWord.size());
+    for (size_t i = 0; i < strWord.size(); i++)
+    {
+        vecWords.push_back(strWord.substr(i));
+    }
+
+    std::sort(vecWords.begin(), vecWords.end());
+
+    for (size_t i = 0; i < strWord.size(); i++)
+    {
+        cout << vecWords[i] << '\n';
+    }
+
+    return 0;
+}
