@@ -1,11 +1,7 @@
-**주의 사항**
-stoi 와 stoll의 차이, 같은 기능을 수행하지만 다르다
-long을 쓴 이유에 대해서 생각해보고, long long을 쓴 이유에 대해서 다시 한번 고민하
+** 주의 사항 **
+1. stoi 와 stoll의 차이, 같은 기능을 수행하지만 다르다
+2. int X, long O, long을 쓴 이유에 대해서 생각해보고, long long을 쓴 이유에 대해서 다시 한번 고민해보기
 
-#include <iostream>
-#include <string>
-
-using namespace std;
 
 int main()
 {
@@ -16,15 +12,15 @@ int main()
     std::string strA, strB, strC, strD;
     cin >> strA >> strB >> strC >> strD;
 
-    std::string AB = strA + strB;
-    std::string CD = strC + strD;
+    std::string strAB = strA + strB;
+    std::string strCD = strC + strD;
 
-    long iAB = stoll(AB);
-    long iCD = stoll(CD);
+    long lAB = std::stoll(strAB);
+    long lCD = std::stoll(strCD);
 
-    long long iResult = iAB + iCD;
+    long long lResult = lAB + lCD;
 
-    cout << iResult;
+    cout << lResult;
 
     return 0;
 } 
