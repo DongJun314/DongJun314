@@ -1,0 +1,62 @@
+** 주의 사항 **
+1. 우선 후위 표기식에 대해서 적응이 필요하고 추가적인 코드 이해도 필요
+2. 특히 (, ),와 같은 문자를 어떻게 처리하는지에 대한 복습 필
+
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::string strInfix;
+    cin >> strInfix;
+
+    std::stack<char> stPostfix;
+
+    for (size_t i = 0; i < strInfix.size(); i++)
+    {
+        if (strInfix[i] >= 'A' && strInfix[i] <= 'Z')
+        {
+            cout << strInfix[i];
+        }
+        else if(strInfix[i] == '(')
+        {
+            stPostfix.push(strInfix[i]);
+        }
+        else if (strInfix[i] == '*' || strInfix[i] == '/')
+        {
+            while (!stPostfix.empty() && (stPostfix.top() == '*' || stPostfix.top() == '/'))
+            {
+                cout << stPostfix.top();
+                stPostfix.pop();
+            }
+            stPostfix.push(strInfix[i]);
+        }
+        else if (strInfix[i] == '+' || strInfix[i] == '-')
+        {
+            while (!stPostfix.empty() && stPostfix.top() != '(')
+            {
+                cout << stPostfix.top();
+                stPostfix.pop();
+            }
+            stPostfix.push(strInfix[i]);
+        }
+        else if (strInfix[i] == ')')
+        {
+            while (!stPostfix.empty() && stPostfix.top() != '(')
+            {
+                cout << stPostfix.top();
+                stPostfix.pop();
+            }
+            stPostfix.pop();
+        }
+    }
+    while (!stPostfix.empty())
+    {
+        cout << stPostfix.top();
+        stPostfix.pop();
+    }
+
+    return 0;
+}
