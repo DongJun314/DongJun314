@@ -1,0 +1,36 @@
+** 주의 사항 **
+1. 
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCnt;
+    cin >> iCnt; 
+
+    std::vector<int> vecNums(iCnt);
+    for (int i = 0; i < iCnt; ++i) {
+        cin >> vecNums[i]; 
+    }
+
+    std::vector<int> vecResult(iCnt, -1);
+    std::stack<int> stNums;
+
+    for (int i = 0; i < iCnt; ++i) 
+    {
+        while (!stNums.empty() && vecNums[stNums.top()] < vecNums[i]) \
+        {
+            vecResult[stNums.top()] = vecNums[i];
+            stNums.pop();
+        }
+        stNums.push(i);
+    }
+
+    for (int i = 0; i < iCnt; ++i) {
+        std::cout << vecResult[i] << " ";
+    }
+
+    return 0;
+}
