@@ -1,9 +1,7 @@
-**주의 사항** 
+** 주의 사항 ** 
+1. 나머지 연산자로 26개의 알파벳 범위 초과하는 부분 'A'/'a' 부터 순회시키기
+2. space까지 필요하니 cout대신 getline함수 사용하기
 
-
-#include <iostream>
-#include <string>
-using namespace std;
 
 int main()
 {
