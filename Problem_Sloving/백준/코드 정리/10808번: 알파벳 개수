@@ -1,10 +1,7 @@
-**주의 사항**
-포문 돌면서 알파벳 찾는 방법이 기발하다
+** 주의 사항 **
+1. 포문 돌면서 알파벳 찾는 방법이 기발하다.
+2. 특정 문자의 개수는 std::count함수를 사용하기
 
-#include <iostream>
-#include <string>
-#include <algorithm>
-using namespace std;
 
 int main()
 {
@@ -17,7 +14,7 @@ int main()
 
     for (int i = 'a'; i <= 'z'; i++)
     {
-        cout << count(strWord.begin(), strWord.end(), i) << ' ';
+        cout << std::count(strWord.begin(), strWord.end(), i) << ' ';
     }
     return 0;
 }
