@@ -1,12 +1,7 @@
-**주의 사항**
-cin.ginore을 사용해 개행 문자를 한줄의 끝을 마무리 짖기
-cin은 공백문자를 저장하지 않기에, getline를 사용해서 공백문자까지 받아오기
+** 주의 사항 **
+1. cin.ginore을 사용해 개행 문자를 한줄의 끝을 마무리 짖기
+2. cin은 공백문자를 저장하지 않기에, getline를 사용해서 공백문자까지 받아오기
 
-
-#include <iostream>
-#include <stack>
-#include <string>
-using namespace std;
 
 int main()
 {
