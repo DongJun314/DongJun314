@@ -1,1 +1,23 @@
+** 주의 사항 **
+1. 뒤에서 0의 개수를 찾다가, 0이 아닌 개수를 반환하는거다
+2. 문자열로 해봤지만, 숫자가 너무 커서 안된다
+3. 다시 꼽씹어 보면서 풀어보기
 
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iFacNum;
+    std::cin >> iFacNum;
+
+    int iZeroCnt = 0;
+    for (int i = 5; i <= iFacNum; i *= 5)
+    {
+        iZeroCnt += iFacNum / i;
+    }
+    std::cout << iZeroCnt << '\n';
+
+    return 0;
+}
