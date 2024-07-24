@@ -1,0 +1,40 @@
+** 주의 사항 ** 
+1. 최소공배수에 대해서 이해하기
+2. 최소공배수(LCM) = A * B / 최대공약수(GCD)
+
+
+int GCD(int _iA, int _iB)
+{
+    while (_iB != 0)
+    {
+        int iC = _iA % _iB;
+        _iA = _iB;
+        _iB = iC;
+    }
+    return _iA;
+}
+
+int LCM(int _iA, int _iB)
+{
+    return _iA * _iB / GCD(_iA, _iB);
+}
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCnt;
+    std::cin >> iCnt;
+
+    for (int i = 0; i < iCnt; i++)
+    {
+        int iA = 0, iB = 0;
+        std::cin >> iA >> iB;
+
+        std::cout << LCM(iA, iB) << '\n';
+    }
+
+    return 0;
+}
