@@ -1,7 +1,7 @@
 ** 주의 사항 **
 1. std::find 함수와 string 내부 string 함수의 차이점에 대해서 이해필요
 2. string 함수 find을 사용할 경우 값을 못찾을 경우 string::npos를 반환하는 부분
-
+3. string find함수는 찾는 문자열의 제일 첫번째 발견한 인덱스 번호를 반환함
 
 int main()
 {
