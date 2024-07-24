@@ -1,1 +1,37 @@
+** 주의 사항 **
+1. 소수에 대해서 이해하기
+2. 특정 범위내에서 소수를 찾기 위해 사용되는 "에라토스테네스의 체"라는 알고리즘에 대해서 이해하기
 
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNumA, iNumB;
+    std::cin >> iNumA >> iNumB;
+
+    std::vector<bool> vecIsPrimeNumber(iNumB + 1, true);
+    vecIsPrimeNumber[0] = vecIsPrimeNumber[1] = false;
+
+    for (int iOuter = 2; iOuter * iOuter <= iNumB; ++iOuter)
+    {
+        if (vecIsPrimeNumber[iOuter]) 
+        {
+            for (int iInner = iOuter * iOuter; iInner <= iNumB; iInner += iOuter)
+            {
+                vecIsPrimeNumber[iInner] = false;
+            }
+        }
+    }
+
+    for (int i = iNumA; i <= iNumB; ++i) 
+    {
+        if (vecIsPrimeNumber[i])
+        {
+            std::cout << i << '\n';
+        }
+    }
+
+    return 0;
+}
