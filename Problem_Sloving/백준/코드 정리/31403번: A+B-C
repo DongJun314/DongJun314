@@ -7,37 +7,12 @@ int main()
     std::ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
+    
     string strA, strB, strC;
     cin >> strA >> strB >> strC;
  
     cout << std::stoi(strA) + std::stoi(strB) - std::stoi(strC) << "\n";
     cout << std::stoi(strA + strB) - std::stoi(strC);
-
-
-
-    /*int iCount;
-    cin >> iCount;
-
-    std::stack<char> stCharacter;
-    std::stack<char> stSentence;
-    std::string strInput;
-
-    for (int iOutter = 0; iOutter < iCount; iOutter++)
-    {
-        cin >> strInput;
-
-        for (auto character : strInput)
-        {
-            if ()
-            {
-
-            }
-            else
-            {
-                stCharacter.push(character);
-            }
-        }
-    }         */
 
     return 0;
 }
