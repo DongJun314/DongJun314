@@ -1,1 +1,39 @@
+** 주의 사항 ** 
+1. 이 문제는 2두가지 풀이 방식이 있다 -> 재귀 or for문 순회
+2. 숫자가 커질 수록 재귀 함수는 호출해야할 함수가 많아져 속도에 영향을 끼칠 수 있다
 
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+
+    int iFacNum;
+    std::cin >> iFacNum;
+
+    int iResult = 1;
+    for (int i = 0; i < iFacNum; i++)
+    {
+        iResult *= i + 1;
+    }
+
+    std::cout << iResult;
+
+    return 0;
+}
+
+//////////////
+재귀 함수
+int Factorial(int _iNum)
+{
+    if (_iNum <= 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return _iNum * Factorial(_iNum-1);
+    }
+}
