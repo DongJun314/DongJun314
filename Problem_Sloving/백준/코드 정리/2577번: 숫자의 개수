@@ -1,1 +1,21 @@
+** 주의 사항 **
+1. 숫자 개수 찾을때, for문 안에 int i = '0' 문자열 '0'이여야 한다, 그리고 문자열 '10'은 존재하지만, 엄청나게 큰수이다
 
+
+int main()
+{
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    int iA = 0, iB = 0, iC = 0;
+    std::cin >> iA >> iB >> iC;
+
+    std::string strSum = std::to_string(iA * iB * iC);
+    for (int i = '0'; i <= '9'; i++)
+    {
+        std::cout << std::count(strSum.begin(), strSum.end(), i) << '\n';
+    }
+
+    return 0;
+}
