@@ -1,1 +1,30 @@
+** 주의 사항 **
+1. std::string(반복 횟수, 반복할 문자) -> 이 함수를 통해서 매 문자마다 특정 회수만큼 반복해서 출력할 수 있다
 
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iTestCases;
+    std::cin >> iTestCases;
+
+    while (iTestCases--)
+    {
+        int iRepeatCount;
+        std::cin >> iRepeatCount;
+
+        std::string strWord;
+        std::cin >> strWord;
+
+        for (size_t i = 0; i < strWord.size(); i++)
+        {
+            std::cout << std::string(iRepeatCount, strWord[i]);
+        }
+        std::cout << '\n';
+    }
+
+    return 0;
+}
