@@ -1,1 +1,42 @@
+** 주의 사항 **
+1. bool값을 플래그 처리하는 것도 좋지만, 이렇게 int 값을 증가시키면서, 숫자가 8이면 그에 맞는 판단을 시킨다
+2. 그걸 기준으로 오름, 내림 등을 판단한다.
 
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    int iAscending = 0, iDescending = 0;
+    std::array<int, 8> arrPitches = {};
+    for (size_t i = 0; i < arrPitches.size(); i++)
+    {
+        std::cin >> arrPitches[i];
+
+        if (arrPitches[i] == i + 1)
+        {
+            iAscending++;
+        }
+        else if (arrPitches[i] == arrPitches.size() - i)
+        {
+            iDescending++;
+        }
+    }
+
+    if (iAscending == 8)
+    {
+        std::cout << "ascending" << '\n';
+    }
+    else if (iDescending == 8)
+    {
+        std::cout << "descending" << '\n';
+    }
+    else
+    {
+        std::cout << "mixed" << '\n';
+    }
+
+    return 0;
+}
