@@ -1,5 +1,18 @@
 ** 주의 사항 **
-1. 
+1. getline 함수 while 조건문 안에 넣기
+2. EOF 끝나는 조건 생각하기 -> while문 안이여서 생각해보기
+
+    while (true) 
+    {
+        std::getline(cin, strSentence);
+        if (cin.eof())
+        {
+            break;
+        }
+        std::cout << strSentence << '\n';
+    }
+
+아래 코드를 풀어서 쓰면 위에 같은 방식이다
 
 
 int main()
