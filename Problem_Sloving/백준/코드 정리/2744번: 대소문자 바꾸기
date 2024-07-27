@@ -1,0 +1,32 @@
+** 주의 사항 **
+1. 일반 인덱스 기반 for문 보다, 아래 범위 기반 for문이 더 컴파일러가 최적화를 더 쉽게 할 수 있다
+2. 상수 부분을 #define 같은 메크로로 정의할 수 있다, 코드유지 보수성을 높입니다
+
+
+#define ASCII_DIFF 32
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    std::string strWord;
+    std::cin >> strWord;
+   
+    for (char& szChar : strWord)
+    {
+        if (szChar >= 'A' && szChar <= 'Z')
+        {
+            szChar += ASCII_DIFF;
+        }
+        else if (szChar >= 'a' && szChar <= 'z')
+        {
+            szChar -= ASCII_DIFF;
+        }
+    }
+    
+    std::cout << strWord;
+
+    return 0;
+}
