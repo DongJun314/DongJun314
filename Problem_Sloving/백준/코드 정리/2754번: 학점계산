@@ -1,0 +1,41 @@
+** 주의 사항 **
+1. 최적화, switch case로 공통된 부분 더하기
+2. cout.precision과 cout << fixed로 소수점 표현하기
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    std::string strScore;
+    std::cin >> strScore;
+
+    float fScore = 0.0f;
+    switch (strScore[0])
+    {
+    case 'A': fScore += 4.0; break;
+    case 'B': fScore += 3.0; break;
+    case 'C': fScore += 2.0; break;
+    case 'D': fScore += 1.0; break;
+    case 'F': fScore += 0.0; break;
+    default: cout << "잘못된 성적입니다."; return 1;
+    }
+
+    if(strScore.size() > 1)
+    {
+        if (strScore[1] == '+')
+        {
+            fScore += 0.3;
+        }
+        else if (strScore[1] == '-')
+        {
+            fScore -= 0.3;
+        }
+    }
+
+    cout.precision(1);
+    cout << fixed << fScore;
+
+    return 0;
+}
