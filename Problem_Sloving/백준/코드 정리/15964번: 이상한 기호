@@ -1,0 +1,19 @@
+** 주의 사항 ** 
+1. 계산식의 최대 결과값이 상당히 크기에 int형 대신 long long 자료형을 사용합니다. 
+2. while문 안에 cin으로 조건을 주는거 까먹지 말기
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    
+    long long iA = 0, iB = 0;
+    while (std::cin >> iA >> iB)
+    {
+        std::cout << (iA + iB) * (iA - iB) << '\n';
+    }
+
+    return 0;
+}
