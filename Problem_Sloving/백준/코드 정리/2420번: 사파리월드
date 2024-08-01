@@ -1,0 +1,18 @@
+** 주의 사항 **
+1. abs함수를 사용하기 위해서 algorithm 헤더 추가하기
+2. 범위가 크기에 long long으로 해준다
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    long long iN = 0, iM = 0;
+    std::cin >> iN >> iM;
+    
+    std::cout << std::abs(iN - iM);
+
+    return 0;
+}
