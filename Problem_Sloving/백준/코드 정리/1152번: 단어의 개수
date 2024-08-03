@@ -1,1 +1,36 @@
+** 주의 사항 **
+1. iCount 초기 값을 0이 아닌 1로 설정할 것
+2. 유니콘 같은 참신한 아이디어는 없다
 
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    string strSentence;
+    std::getline(cin, strSentence);
+
+    int iCount = 1;
+    for (char szChar : strSentence)
+    {
+        if (szChar == ' ')
+        {
+            ++iCount;
+        }
+    }
+
+    if (strSentence[0] == ' ')
+    {
+        --iCount;
+    }
+    if (strSentence[strSentence.size() - 1] == ' ')
+    {
+        --iCount;
+    }
+
+    std::cout << iCount;
+
+    return 0;
+}
