@@ -1,0 +1,40 @@
+** 주의 사항 **
+1. algorithm 헤더 추가하기 ( swap , reverse )함수들 사용하기 위해서
+2. 두가지 방식이 있다, 하나는 for문을 돌며 swap함수를 호출하는 방식과, reverse함수를 호출하는 방식
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum, iCount;
+    std::cin >> iNum >> iCount;
+
+    std::vector<int> vecBasket(iNum);
+    for (int i = 0; i < iNum; i++)
+    {
+        vecBasket[i] = i + 1;
+    }
+
+    while (iCount--)
+    {
+        int iStart, iEnd;
+        std::cin >> iStart >> iEnd;
+
+       첫번쨰 방식  std::reverse(vecBasket.begin() + (iStart - 1), vecBasket.begin() + iEnd);
+
+       두번째 방식  for (int i = 0; i <= (iEnd - iStart) / 2; i++)
+                    {
+                        std::swap(vecBasket[iStart + i], vecBasket[iEnd - i]);
+                    }
+    }
+
+    for (int i = 0; i < iNum; ++i) 
+    {
+        cout << vecBasket[i] << " ";
+    }
+
+    return 0;
+}
