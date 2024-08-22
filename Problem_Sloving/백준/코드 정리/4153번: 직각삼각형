@@ -1,0 +1,35 @@
+** 주의 사항 ** 
+1. 최대 수를 std::max함수로 도출할 경우, 2개 이상일 경우 {} 중괄호를 사용한다.
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    while (true)
+    {
+        int iA = 0, iB = 0, iC = 0;
+        std::cin >> iA >> iB >> iC;
+
+        if (iA == 0 && iB == 0 && iC == 0)
+        {
+            break;
+        }
+
+        int iMaxSide = std::max({ iA, iB, iC });
+        int iSumMinSide = iA * iA + iB * iB + iC * iC - iMaxSide * iMaxSide;
+
+        if (iMaxSide * iMaxSide == iSumMinSide)
+        {
+            std::cout << "right" << '\n';
+        }
+        else
+        {
+            std::cout << "wrong" << '\n';
+        }
+    }
+  
+    return 0;
+}
