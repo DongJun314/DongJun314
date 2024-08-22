@@ -1,1 +1,36 @@
+** 주의 사항 ** 
+1. 
 
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iTestCase = 0;
+    std::cin >> iTestCase;
+
+    while (iTestCase--)
+    {        
+        string strQuizResult;
+        std::cin >> strQuizResult;
+    
+        int iResult = 0, iCount = 0;
+        for (char& szChar : strQuizResult)
+        {
+            if (szChar == 'O')
+            {
+                ++iCount;
+                iResult += iCount;
+            }
+            else
+            {
+                iCount = 0;
+            }
+        }
+
+        std::cout << iResult << '\n';
+    }
+  
+    return 0;
+}
