@@ -1,0 +1,37 @@
+** 주의 사항 **
+1. 나머지, 나누기 연산을 응용
+2. 백의 자리, 일의 자리, 같은 자리수 문제가 나왔을 때는 나머지 연산을 생각하기
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+	int iSumNum = 0;
+	std::cin >> iSumNum;
+
+	for (int i = 0; i < iSumNum; i++)
+	{
+		int iSum = 0;
+		int iNum = i;
+		while (iNum)
+		{
+			iSum += iNum % 10;
+			iNum /= 10;
+		}
+		if (iSum + i == iSumNum)
+		{
+			std::cout << i;
+			return 0;
+		}
+	}
+	
+	std::cout << 0;
+
+    return 0;
+}
