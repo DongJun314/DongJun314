@@ -1,0 +1,26 @@
+** 주의 사항 **
+1. 문제를 간단생각하자(어렵게 생각하지마라)
+2. 규칙을 찾고 수식화한다
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum;
+    std::cin >> iNum;
+
+    int iCount = 1, iRange = 1;
+    while (iNum > iRange)
+    {
+        iRange += 6 * iCount;
+        iCount++;
+    }
+
+    std::cout << iCount;
+
+    return 0;
+}
+
