@@ -1,0 +1,50 @@
+** 주의 사항 **
+1. 브루트포스 알고리즘에 대해서 이해하기
+2. 3중 포문 안에서 포문 변수에 1을 추가하는 부분 유의깊게 보기
+3. 최대값 구하는 방법에 대해서 꼭 std::max 알고리즘을 사용하지 않아도 된다는걸 생각하기
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNumCard = 0, iCardSum = 0;
+    std::cin >> iNumCard >> iCardSum;
+        
+    std::vector<int> vecCards = {};
+    vecCards.reserve(iNumCard);
+    for (int i = 0; i < iNumCard; i++)
+    {
+        int iCard = 0;
+        std::cin >> iCard;
+        vecCards.push_back(iCard);
+    }
+
+    int iResult = 0;
+    for (int iFirst = 0; iFirst < iNumCard; iFirst++)
+    {
+        for (int iSecond = iFirst + 1; iSecond < iNumCard; iSecond++)
+        {
+            for (int iThird = iSecond + 1; iThird < iNumCard; iThird++)
+            {
+                int iSumThreeCards =  vecCards[iFirst] + vecCards[iSecond] + vecCards[iThird];
+                if (iSumThreeCards <= iCardSum && iSumThreeCards > iResult)
+                {
+                    iResult = iSumThreeCards;
+                }
+            }
+        }
+    }
+
+    std::cout << iResult;
+
+    return 0;
+}
+
