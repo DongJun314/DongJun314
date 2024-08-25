@@ -1,0 +1,39 @@
+** 주의 사항 **
+1. 자료형을 double을 할것, 그외에는 크게 없음
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iSubjects = 0;
+    std::cin >> iSubjects;
+
+    std::vector<double> vecScores = {};
+    vecScores.reserve(iSubjects);
+
+    for (int i = 0; i < iSubjects; i++)
+    {
+        double dScore = 0;
+        std::cin >> dScore;
+        vecScores.push_back(dScore);
+    }
+    
+    double dAverScore = 0;
+    double dMaxScore = *std::max_element(vecScores.begin(), vecScores.end());
+    for (int i = 0; i < vecScores.size(); i++)
+    {
+        dAverScore += vecScores[i] / dMaxScore * 100;
+    }
+    
+    std::cout << dAverScore / iSubjects;
+
+    return 0;
+}
