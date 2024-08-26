@@ -1,0 +1,25 @@
+** 주의 사항 **
+1. 달팽이는 정상에 도달하면 미끄러지지 않는다
+2. iDayClimb -1을 사용해 올림효과를 준다, int형 나누기 연산시, 소수점을 버리기에, 올림효과를 통해, 일수를 추가한다
+
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iUpHeight = 0, iDownHeight = 0, iWoodHeight = 0;
+    std::cin >> iUpHeight >> iDownHeight >> iWoodHeight;
+
+    int iDayClimb = iUpHeight - iDownHeight;
+    int iDayCount = (iWoodHeight - iUpHeight + iDayClimb - 1) / iDayClimb + 1;
+
+    std::cout << iDayCount;
+
+    return 0;
+}
