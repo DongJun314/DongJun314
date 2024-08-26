@@ -1,0 +1,39 @@
+** 주의 사항 **
+1. 정렬도 종류가 다양하다, 아래 같은 경우, 일반 std::sort함수를 사용할 경우, 메모리 초과 같은 경우가 발생한다. 
+2. 이를 보완하기 위한 계수 정렬인 즉 counting sort라는 방식으로 통해, 카운팅을 하고 이를 추후 출력한다
+3. 아래에 2중 for문 같이, 중복된 값을 개수 만큼 출력한다.
+
+
+#include <iostream>
+#include <array>
+using namespace std;
+
+#define MAX 10001
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iTestCase = 0;
+    std::cin >> iTestCase;
+
+    std::array<int, MAX> arrCountSort = { 0 };
+    for (int i = 0; i < iTestCase; i++)
+    {
+        int iNum = 0;
+        std::cin >> iNum;
+        arrCountSort[iNum] += 1;
+    }
+
+    for (int iOuter = 1; iOuter < MAX; iOuter++)
+    {
+        for (int iInner = 0; iInner < arrCountSort[iOuter]; iInner++)
+        {
+            std::cout << iOuter << '\n';
+        }
+    }
+
+    return 0;
+}
