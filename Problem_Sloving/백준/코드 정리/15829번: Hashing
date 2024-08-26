@@ -1,0 +1,38 @@
+** 주의사항 ** 
+1. Mod연산(모듈연산)에 대해서 이해하기
+2. 모듈연산과 나머지 연산의 차이점
+3. 값이 클 수 있어 longlong 자료형으로 변수
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+#define CHARTOINT 96
+#define MOD 1234567891
+#define R 31
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iLength = 0;
+    string strChars;
+    cin >> iLength >> strChars;
+
+    long long lHash = 0;
+    long long lPow = 1;
+
+    for (int i = 0; i < strChars.length(); i++)
+    {
+        int iChar = strChars[i] - CHARTOINT;
+        lHash = (lHash + (iChar * lPow) % MOD) % MOD;
+        lPow = (lPow * R) % MOD;
+    }
+
+    cout << lHash;
+
+    return 0;
+}
