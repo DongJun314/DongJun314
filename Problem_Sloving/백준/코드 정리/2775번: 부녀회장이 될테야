@@ -1,0 +1,43 @@
+** 주의 사항 ** 
+1. 값을 채워 넣는 부분을 굳히 while 안에서 해줄 필요가 없이 사전에 미리 세팅을 한 후 해도 된다
+
+
+
+#include <iostream>
+#include <array>
+using namespace std;
+
+#define MAX 15
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    std::array<std::array<int, MAX>, MAX> arrNumPeople = {};
+    for (int iNumRoom = 1; iNumRoom < MAX; iNumRoom++)
+    {
+        arrNumPeople[0][iNumRoom] = iNumRoom;
+    }
+
+    for (int iNumFloor = 1; iNumFloor < MAX; iNumFloor++)
+    {
+        for (int iNumRoom = 1; iNumRoom < MAX; iNumRoom++)
+        {
+            arrNumPeople[iNumFloor][iNumRoom] = arrNumPeople[iNumFloor - 1][iNumRoom] + arrNumPeople[iNumFloor][iNumRoom - 1];
+        }
+    }
+
+    int iTestCase = 0;
+    std::cin >> iTestCase;
+
+    while (iTestCase--)
+    {
+        int iFloor = 0, iRoom = 0;
+        std::cin >> iFloor >> iRoom;
+        std::cout << arrNumPeople[iFloor][iRoom] << '\n';
+    }
+
+    return 0;
+}
