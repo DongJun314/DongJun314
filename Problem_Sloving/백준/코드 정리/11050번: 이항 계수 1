@@ -1,0 +1,36 @@
+** 주의 사항 ** 
+1. 이항 계수에 대한 이해도 높이기
+2. 이항 계수의 수학 공식은 iN! / iK!(iN-iK)! 이다.
+3. 재귀함수를 사용시, 0! == 1, 1! == 1에 대한 예외처리도 추가하기 
+
+
+#include <iostream>
+using namespace std;
+
+int Factorial(int _iNum)
+{
+    if (_iNum == 0 || _iNum == 1) 
+    {
+        return 1;
+    }
+    else
+    {
+        return _iNum * Factorial(_iNum - 1);
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iN = 0, iK = 0;
+    std::cin >> iN >> iK;
+
+    int iCount = Factorial(iN) / (Factorial(iK) * Factorial(iN - iK));
+    
+    std::cout << iCount;
+
+    return 0;
+}
