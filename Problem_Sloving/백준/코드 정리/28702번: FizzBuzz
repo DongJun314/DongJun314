@@ -1,0 +1,51 @@
+** 주의 사항 **
+1. 문자열을 35 ~ 43번째 줄, 최적화 부분 신셩쓰기
+2. atoi 와 stoi의 차이는 하나는 char를 매개변수로 받고, 나머지 하나는 string을 매개 변수로 받는다
+3. 
+
+
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    for (int i = 0; i < 3; ++i)
+    {
+        std::string strChar;
+        std::cin >> strChar;
+
+        if (strChar[0] == 'F' || strChar[0] == 'B')
+        {
+            continue;
+        }
+
+        int iNum = std::stoi(strChar) + 3 - i;
+
+        if (iNum % 3 && iNum % 5)
+        {
+            std::cout << iNum;
+        }
+        else
+        {
+            if (iNum % 3 == 0)
+            {
+                std::cout << "Fizz";
+            }
+
+            if (iNum % 5 == 0)
+            {
+                std::cout << "Buzz";
+            }
+        }
+
+        break;
+    }
+    return 0;
+}
