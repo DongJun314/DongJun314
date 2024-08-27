@@ -1,0 +1,43 @@
+** 주의 사항 ** 
+1. 이번 문제는 순전히 sort 함수를 사용하기 위한 문제, 어렵게 생각하기 전에 먼저 풀어보기
+2. 30줄 아래부터 두종류의 for 루프문이 있는데, 속도 차이는 거의 없다, 허나 인덱스 접근하는게 완전 조금 더 빠르다.
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum = 0;
+    std::cin >> iNum;
+
+    std::vector<int> vecNums(iNum);
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cin >> vecNums[i];
+    }
+
+    std::sort(vecNums.begin(), vecNums.end());
+
+
+    // C++ 11에서 새로 도입된 범위 기반 for 루프
+    for (const int& iSortedNum : vecNums)
+    {
+        std::cout << iSortedNum << '\n';
+    }
+
+    // 전통적인 인덱스 기반 for 루프
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cout << vecNums[i] << '\n';
+    }
+
+    return 0;
+}
