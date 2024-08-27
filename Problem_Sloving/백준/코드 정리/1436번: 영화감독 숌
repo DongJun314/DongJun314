@@ -1,0 +1,44 @@
+** 주의 사항 **
+1. 여기서는 for문은 안되고 while문으로 카운팅 하는 방식으로 해당 출시한 영화의 종말의 수를 구할 수 잇다
+2. 특정 연속된 문자를 찾을때는 find 함수를 사용할 것
+3. string::npos는 no position의 약자로, find 함수를 사용해 특정 문자열을 찾았지만, 못 찾았을 경우 반환하는 값이다.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool IsDoomsNum(int _iNum)
+{
+    std::string strDoomsNum = to_string(_iNum);
+    return strDoomsNum.find("666") != string::npos;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum = 0;
+    std::cin >> iNum;
+    
+    int iNumMovie = 0;
+    int iDoomsNum = 666;
+    while (true)
+    {
+        if (IsDoomsNum(iDoomsNum))
+        {
+            ++iNumMovie;
+
+            if (iNumMovie == iNum)
+            {
+                std::cout << iDoomsNum << '\n';     
+                break;
+            }
+        }
+        ++iDoomsNum;
+    }
+
+    return 0;
+}
