@@ -1,0 +1,56 @@
+** 주의 사항**
+1. CompareSort함수 재복습하기, sort를 통한 문자열 비교일 경우, 사선 순인지 아닌지에 따라 true false를 반환한다.
+2. 마지막 중복체크 경우, 인덱스를 통해 접근하는 방식은 잘못하면 없는 벡터 인덱스를 접근할 수 있으니, for(auto) 믿, 이전 단어를 기록하는 방식으로 비교를 한다.
+
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool CompareSort(std::string& strA, std::string& strB)
+{
+    if (strA.length() == strB.length())
+    {
+        return strA < strB;
+    }
+
+    return strA.length() < strB.length();
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+   
+    int iNumWord = 0;
+    std::cin >> iNumWord;
+
+    std::vector<string> vecWords = {};
+    vecWords.reserve(iNumWord);
+
+    for (int i = 0; i < iNumWord; i++)
+    {
+        std::string strWord = {};
+        std::cin >> strWord;
+
+        vecWords.push_back(strWord);
+    }
+
+    std::sort(vecWords.begin(), vecWords.end(), CompareSort);
+
+    std::string strPreWord = {};
+    for (const auto& strCurWord : vecWords)
+    {
+        if (strCurWord != strPreWord)
+        {
+            std::cout << strCurWord << '\n';
+            strPreWord = strCurWord;
+        }
+    }
+
+    return 0;
+}
