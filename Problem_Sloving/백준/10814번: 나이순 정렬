@@ -1,0 +1,42 @@
+** 주의 사항 **
+1. 정렬을 집적 구현보다는 있는 함수를 사용해라
+2. sort 함수와 stable_sort 함수를 차이점을 알아라, stable_sort는 특정 조건이 같으면 입력 순서대로 정렬이 된다
+3. 사용자 함수 SortOnlyAges 함수가 있고 없고의 차이점을 이해해라, 없을 경우, int도 비교하고, string도 비교하지만, 저 함수가 있음으로 int만 비교하고, 나머지는 stable_sort 함수의 특징에 따라 입력 순서대로 정렬이 수행된다.
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool SortOnlyAges(const pair<int, string>& _prA, const pair<int, string>& _prB)
+{
+    return _prA.first < _prB.first;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum = 0;
+    std::cin >> iNum;
+    
+    std::vector<std::pair<int, string>> vecAgesNames(iNum);
+    
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cin >> vecAgesNames[i].first >> vecAgesNames[i].second;
+    }
+    
+    std::stable_sort(vecAgesNames.begin(), vecAgesNames.end(), SortOnlyAges);
+
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cout << vecAgesNames[i].first << ' ' << vecAgesNames[i].second << '\n';
+    }
+    
+    return 0;
+}
