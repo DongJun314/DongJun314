@@ -1,0 +1,36 @@
+** 주의 사항 ** 
+1. 단순한 정렬 문제
+2. sort 함수 대신 stable_sort 함수를 사용할 경우, 시간은 빨라지지만 메모리는 늘어난
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum = 0;
+    std::cin >> iNum;
+    
+    std::vector<std::pair<int, int>> vecXYs(iNum);
+    
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cin >> vecXYs[i].first >> vecXYs[i].second;
+    }
+    
+    std::stable_sort(vecXYs.begin(), vecXYs.end());
+
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cout << vecXYs[i].first << ' ' << vecXYs[i].second << '\n';
+    }
+    
+    return 0;
+}
