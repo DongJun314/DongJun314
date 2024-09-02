@@ -1,0 +1,43 @@
+** 주의 사항 **
+1. y를 먼저 정렬하고 x를 정렬하기 위한 함수 부분
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool SortXY(pair<int, int> _prA, pair<int, int> _prB)
+{
+    if (_prA.second != _prB.second) {
+        return _prA.second < _prB.second; // y좌표가 다르면 y좌표로 정렬
+    }
+    return _prA.first < _prB.first; // y좌표가 같으면 x좌표로 정렬
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iNum = 0;
+    std::cin >> iNum;
+    
+    std::vector<std::pair<int, int>> vecXYs(iNum);
+    
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cin >> vecXYs[i].first >> vecXYs[i].second;
+    }
+    
+    std::stable_sort(vecXYs.begin(), vecXYs.end(), SortXY);
+
+    for (int i = 0; i < iNum; i++)
+    {
+        std::cout << vecXYs[i].first << ' ' << vecXYs[i].second << '\n';
+    }
+    
+    return 0;
+}
