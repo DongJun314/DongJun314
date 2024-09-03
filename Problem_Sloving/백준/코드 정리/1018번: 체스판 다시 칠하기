@@ -1,0 +1,93 @@
+** 주의 사항 ** 
+1. 나뭇잎을 보지말고, 숲을 보라
+2. 하나하나 비교하지 말고, 전체를 구한뒤 비교해라
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+char szBW[8][8];
+char szWB[8][8];
+
+void InitializeChessBoard()
+{
+    for (int iOuter = 0; iOuter < 8; iOuter++)
+    {
+        for (int iInner = 0; iInner < 8; iInner++)
+        {
+            if ((iOuter + iInner) % 2 == 0)
+            {
+                szBW[iOuter][iInner] = 'B';
+                szWB[iOuter][iInner] = 'W';
+            }
+            else
+            {
+                szBW[iOuter][iInner] = 'W';
+                szWB[iOuter][iInner] = 'B';
+            }
+        }
+    }
+}
+
+int CountRepaint(std::vector<std::vector<char>> _vecBoard, int _iStartX, int _iStartY)
+{
+    int iCountBW = 0, iCountWB = 0;
+    for (int iOuter = 0; iOuter < 8; iOuter++)
+    {
+        for (int iInner = 0; iInner < 8; iInner++)
+        {
+            if (_vecBoard[_iStartX + iOuter][_iStartY + iInner] != szBW[iOuter][iInner])
+            {
+                ++iCountBW;
+            }
+            else if(_vecBoard[_iStartX + iOuter][_iStartY + iInner] !=  szWB[iOuter][iInner])
+            {
+                ++iCountWB;
+            }
+        }
+    }
+
+    return std::min(iCountBW, iCountWB);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iN = 0, iM = 0;
+    std::cin >> iN >> iM;
+    
+    std::vector<vector<char>> vecBoard(iN, vector<char>(iM));
+
+    for (int iOuter = 0; iOuter < iN; iOuter++)
+    {
+        for (int iInner = 0; iInner < iM; iInner++)
+        {
+            std::cin >> vecBoard[iOuter][iInner];
+        }
+    }
+
+    InitializeChessBoard();
+
+    int iResult = iN * iM;
+    for (int iOuter = 0; iOuter <= iN - 8; iOuter++)
+    {
+        for (int iInner = 0; iInner <= iM - 8; iInner++)
+        {
+            int iCount = 0;
+            iCount = CountRepaint(vecBoard, iOuter, iInner);
+
+            if (iCount < iResult)
+            {
+                iResult = iCount;
+            }
+        }
+    }
+
+    std::cout << iResult;
+    
+    return 0;
+}
