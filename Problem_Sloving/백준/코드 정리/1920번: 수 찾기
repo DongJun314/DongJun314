@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+** 주의 사항 **
+1. 선형 탐색 대신 이진탐색을 사용하기
+2. 이진 탐색을 하기 위해서 우선 정렬을 하기
+3. 이진 탐색 함수 binary_search 함수 사용하기
+
+
+
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iN = 0;
+    std::cin >> iN;
+
+    std::vector<int> vecNums(iN);
+    for (int i = 0; i < iN; i++)
+    {
+        std::cin >> vecNums[i];
+    }
+
+    std::sort(vecNums.begin(), vecNums.end());
+
+    int iM = 0;
+    std::cin >> iM;
+
+    for (int i = 0; i < iM; i++)
+    {
+        int iNum = 0;
+        std::cin >> iNum;
+
+        if (binary_search(vecNums.begin(), vecNums.end(), iNum))
+        {
+            std::cout << 1 << '\n';
+        }
+        else
+        {
+            std::cout << 0 << '\n';
+        }
+    }
+
+    return 0;
+}
