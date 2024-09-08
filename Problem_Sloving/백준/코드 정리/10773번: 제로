@@ -1,0 +1,47 @@
+** 주의 사항 ** 
+1. stack.pop을 할경우 사이즈도 실시간으로 바뀌기에, for문을 통한 size체크는 유의깊게 확인하기
+2. 또한 pop을 할경우, empty를 꼭 확인한후 pop하기
+
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int iCount = 0;
+    std::cin >> iCount;
+
+    std::stack<int> stNums;
+
+    int iNum = 0;
+    while(std::cin >> iNum)
+    {
+        if (iNum == 0)
+        {
+            if (!stNums.empty())
+            {
+                stNums.pop();
+            }
+        }
+        else
+        {
+            stNums.push(iNum);
+        }        
+    }
+
+    int iResult = 0;
+    while (!stNums.empty()) 
+    {
+        iResult += stNums.top();
+        stNums.pop();
+    }
+
+    std::cout << iResult;
+
+    return 0;
+}
