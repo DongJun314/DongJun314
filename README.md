@@ -1,6 +1,4 @@
-# Welcome
-
-## 🕹️ Profile
+<h1 align="center"> LEE DONGJUN //</h1>
 
 ## ✨ Language / Library ✨
 
