@@ -1,4 +1,4 @@
-<h1 align="center"> LEE DONGJUN //</h1>
+<h1 align="center"> LEE DONGJUN </h1>
 
 ## ✨ Language / Library ✨
 
